@@ -23,9 +23,6 @@ import scala.math.abs
 
 class SendWay4ScenarioBuilder(val countUsers: Int,
                               val countTransactions: Int, val config: Config,
-                              val mdmCrossLinks: Finisheable,
-                              val mortgage: Finisheable,
-                              val rate: Finisheable,
                              ) {
 
   val countMessages: Int = countUsers * countTransactions

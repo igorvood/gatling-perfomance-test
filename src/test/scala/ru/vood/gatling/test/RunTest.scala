@@ -10,7 +10,7 @@ object RunTest extends App {
     .resourcesDirectory(IDEPathHelper.mavenResourcesDirectory.toString)
     .resultsDirectory(IDEPathHelper.resultsDirectory.toString)
     .binariesDirectory(IDEPathHelper.mavenBinariesDirectory.toString)
-    .simulationClass("ru.vood.gatling.test.tests.UaspStreamingMdmEnrichmentITestScript")
+    .simulationClass("ru.vood.gatling.test.tests.TestScriptGenerator")
 
   Gatling.fromMap(props.build)
 }

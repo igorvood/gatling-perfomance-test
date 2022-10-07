@@ -10,7 +10,7 @@ import ru.vood.gatling.test.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USE
 import ru.vtb.uasp.common.dto.UaspDto
 import ru.vtb.uasp.common.utils.avro.AvroSerializeUtil
 
-class UaspStreamingMdmEnrichmentITestScript extends Simulation {
+class TestScriptGenerator extends Simulation {
   implicit val countId = CountId(1000)
 
   implicit val convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte]) = {
@@ -24,11 +24,6 @@ class UaspStreamingMdmEnrichmentITestScript extends Simulation {
     // Передач холодного и горячего
     val sendMdmCrossLinksScenario = SendScenarioBuilder("kafkaInMdmCrossLinkMessages", generateCrossLinkMdm)
     val sendWay4Scenario = SendScenarioBuilder("kafkaInWay4MessagesConf", generateWay4)
-
-    // Отправка в Way4 сообщение дожидается завершения передачи кросс ссылок мдм
-    //    val sendWay4ScenarioBuilder: SendWay4ScenarioBuilder = new SendWay4ScenarioBuilder(COUNT_USERS, COUNT_TRANSACTION, config)
-    //    val sendWay4Scenario = sendWay4ScenarioBuilder.getSendWay4Scenario
-
 
     setUp(
       sendMdmCrossLinksScenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInMdmCrossLinkMessagesConf).andThen(

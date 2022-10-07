@@ -1,10 +1,7 @@
 package ru.vood.gatling.test.utils
 
 import org.apache.kafka.clients.producer.ProducerConfig
-import org.apache.kafka.common.serialization.ByteArrayDeserializer
 import ru.vood.gatling.test.entity.Config
-
-import java.util.Properties
 
 object KafkaPropertiesUtil {
   val securityProtocol = "SSL"

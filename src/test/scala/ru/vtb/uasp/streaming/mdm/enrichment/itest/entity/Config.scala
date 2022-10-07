@@ -27,22 +27,12 @@ case class Config(
                    sslKeystoreLocation: String,
                    sslKeystorePassword: String,
                    sslKeyPassword: String,
-                   nameStateDayHourAggregates: String,
-                   nameStateMaxDurations: String,
-                   nameStateLastTransaction: String,
                    enablePrefix: String,
                    prefix: String,
-                   rateList: List[String],
-                   dateDiapason: Int
                  ) {
 
-  val evalPrefix: String = if (enablePrefix.equals("true")) s"$prefix${new Date()}=>" else new Date().toString
 
   val kafkaInMdmCrossLinkMessagesConf: KafkaProtocol = getKafkaProtocol(topicInCrossLinkMdm)
-
-  val kafkaInMortgageMessagesConf: KafkaProtocol = getKafkaProtocol(topicInMortgage)
-
-  val kafkaInRateMessagesConf: KafkaProtocol = getKafkaProtocol(topicInRate)
 
   val kafkaInWay4MessagesConf: KafkaProtocol = getKafkaProtocol(topicInWay4)
 

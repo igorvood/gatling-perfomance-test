@@ -47,7 +47,7 @@ object DataGeneratorDao {
   }
 
 
-  def generateCrossLinkMdm(userIdLocal: String, idGloabal: String): UaspDto = {
+  def generateCrossLinkMdm(userIdLocal: String): UaspDto = {
     UaspDto(
       userIdLocal,
       Map("period" -> 12),

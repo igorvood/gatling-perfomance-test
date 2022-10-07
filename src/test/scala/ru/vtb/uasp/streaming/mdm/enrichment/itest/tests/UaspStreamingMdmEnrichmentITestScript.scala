@@ -12,8 +12,8 @@ class UaspStreamingMdmEnrichmentITestScript extends Simulation {
 
   if (CASE_NUMBER == 1) {
     // Передачи кросс ссылок мдм (наполняем состояние кросс ссылками перед стартом обогащения)
-    val sendMdmCrossLinksScenarioBuilder: SendMdmCrossLinksScenarioBuilder = new SendMdmCrossLinksScenarioBuilder(COUNT_USERS, config)
-    val sendMdmCrossLinksScenario = sendMdmCrossLinksScenarioBuilder.getSendMdmCrossLinksScenario
+    val sendMdmCrossLinksScenarioBuilder: SendScenarioBuilder = new SendScenarioBuilder()
+    val sendMdmCrossLinksScenario = sendMdmCrossLinksScenarioBuilder.sendScenario
 
     // Отправка в Way4 сообщение дожидается завершения передачи кросс ссылок мдм
     val sendWay4ScenarioBuilder: SendWay4ScenarioBuilder = new SendWay4ScenarioBuilder(COUNT_USERS, COUNT_TRANSACTION, config)
@@ -30,8 +30,8 @@ class UaspStreamingMdmEnrichmentITestScript extends Simulation {
   }
   else if (CASE_NUMBER == 2) {
 
-    val sendMdmCrossLinksScenarioBuilder: SendMdmCrossLinksScenarioBuilder = new SendMdmCrossLinksScenarioBuilder(COUNT_USERS, config)
-    val sendMdmCrossLinksScenario = sendMdmCrossLinksScenarioBuilder.getSendMdmCrossLinksScenario
+    val sendMdmCrossLinksScenarioBuilder: SendScenarioBuilder = new SendScenarioBuilder()
+    val sendMdmCrossLinksScenario = sendMdmCrossLinksScenarioBuilder.sendScenario
 
     // Отправка в Way4 сообщение дожидается завершения передачи кросс ссылок мдм
     val sendWay4ScenarioBuilder: SendWay4ScenarioBuilder = new SendWay4ScenarioBuilder(COUNT_USERS, COUNT_TRANSACTION, config)

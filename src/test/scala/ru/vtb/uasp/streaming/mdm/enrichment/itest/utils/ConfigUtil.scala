@@ -41,13 +41,8 @@ object ConfigUtil {
        * sysEnv.getOrElse("sslKeystorePassword", ""),
        * sysEnv.getOrElse("sslKeyPassword", ""), */
 
-      nameStateDayHourAggregates = sys.env.getOrElse("nameStateDayHourAggregates", "DayHourAggregates"),
-      nameStateMaxDurations = sys.env.getOrElse("nameStateMaxDurations", "MaxDurations"),
-      nameStateLastTransaction = sys.env.getOrElse("nameStateLastTransaction", "LastTransaction"),
       enablePrefix = sys.env.getOrElse("enablePrefix", "true"),
       prefix = sys.env.getOrElse("prefix", "EnItest!-"),
-      rateList = sys.env.getOrElse("prefix", "USD,EUR,RUB").split(",").toList,
-      dateDiapason = sys.env.getOrElse("prefix", "1").toInt,
     )
 
     config

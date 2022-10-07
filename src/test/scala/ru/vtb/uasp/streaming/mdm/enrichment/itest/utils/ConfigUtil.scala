@@ -30,13 +30,6 @@ object ConfigUtil {
       sslKeystorePassword = sysEnv.getOrElse("sslKeystorePassword", "p9HrxNIXS4ekSBKKD0Dh<zL7a2!"),
       sslKeyPassword = sysEnv.getOrElse("sslKeyPassword", "p9HrxNIXS4ekSBKKD0Dh<zL7a2!"),
 
-      /**
-       * sysEnv.getOrElse("sslTruststoreLocation", "kafka-trust.pfx"),
-       * sysEnv.getOrElse("sslTruststorePassword", ""),
-       * sysEnv.getOrElse("sslKeystoreLocation", "APD00.13.01-USBP-kafka-cluster-uasp.pfx"),
-       * sysEnv.getOrElse("sslKeystorePassword", ""),
-       * sysEnv.getOrElse("sslKeyPassword", ""), */
-
       enablePrefix = sys.env.getOrElse("enablePrefix", "true"),
       prefix = sys.env.getOrElse("prefix", "EnItest!-"),
     )

@@ -13,8 +13,8 @@ import scala.math.abs
 
 class SendScenarioBuilder(
                            private val senderName: String = "kafkaInMdmCrossLinkMessages",
-                           private val cntIds: Int = 10000,
-                           private val generateDto: String => UaspDto = generateCrossLinkMdm,
+                           private val cntIds: Int,
+                           private val generateDto: String => UaspDto,
                            private val convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte]) = {
                              (id, data) => (id.getBytes(), AvroSerializeUtil.encode[UaspDto](data, encoderUaspDto, genericDatumWriterUaspDto))
                            }
@@ -30,7 +30,7 @@ class SendScenarioBuilder(
 
   def sendScenario: ScenarioBuilder = {
 
-    scenario("Mdm Cross Links")
+    scenario(senderName)
       .exec(session => {
         val localUserId = abs(java.util.UUID.randomUUID().toString.hashCode % cntIds).toString
 
@@ -50,10 +50,7 @@ class SendScenarioBuilder(
 object SendScenarioBuilder {
 
 
-  def apply(senderName: String = "kafkaInMdmCrossLinkMessages",
-            )(implicit  cntIds: CountId = CountId(10000), generateDto: String => UaspDto = generateCrossLinkMdm, convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte]) = {
-    (id, data) => (id.getBytes(), AvroSerializeUtil.encode[UaspDto](data, encoderUaspDto, genericDatumWriterUaspDto))
-  }
+  def apply(senderName: String = "kafkaInMdmCrossLinkMessages", generateDto: String => UaspDto)(implicit cntIds: CountId, convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte])) =
 
-           ) = new SendScenarioBuilder(senderName, cntIds.cnt, generateDto, convertToBytes).sendScenario
+    new SendScenarioBuilder(senderName, cntIds.cnt, generateDto, convertToBytes).sendScenario
 }

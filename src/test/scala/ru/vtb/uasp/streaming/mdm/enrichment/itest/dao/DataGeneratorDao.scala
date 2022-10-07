@@ -27,7 +27,7 @@ object DataGeneratorDao {
     )
   }
 
-  def generateWay4(userIdLocal: String, idMsg: String): UaspDto = {
+  def generateWay4(userIdLocal: String): UaspDto = {
     val random = new scala.util.Random
     UaspDto(
       id = userIdLocal,

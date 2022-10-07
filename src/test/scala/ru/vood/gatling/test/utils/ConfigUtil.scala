@@ -18,9 +18,6 @@ object ConfigUtil {
       topicOutMortgage = sysEnv.getOrElse("topicOutMortgage", "dev_bevents_card_agreement_enrich_out_uaspdto"),
       topicOutCrossLinkMdmStatus = sysEnv.getOrElse("topicOutCrossLinkMdmStatus", "dev_bevents_card_agreement_enrich_out_uaspdto"),
       topicOutEnrichmentWay4 = sysEnv.getOrElse("topicOutEnrichmentWay4", "dev_ivr__uasp_realtime__mdm_enrichment__uaspdto"),
-      topicDLQ = sysEnv.getOrElse("topicDLQ", "dev_bevents_card_agreement_enrich_out_uaspdto"),
-      topicInRate = sysEnv.getOrElse("topicInRate", "rate_in"),
-      topicOutRate = sysEnv.getOrElse("topicInRate", "rate_out"),
       bootstrapServers = sysEnv.getOrElse("bootstrapServers", "d5uasp-kfc001lk.corp.dev.vtb:9092,d5uasp-kfc002lk.corp.dev.vtb:9092,d5uasp-kfc003lk.corp.dev.vtb:9092,d5uasp-kfc004lk.corp.dev.vtb:9092,d5uasp-kfc005lk.corp.dev.vtb:9092,d5uasp-kfc006lk.corp.dev.vtb:9092"),
       //      bootstrapServers = sysEnv.getOrElse("bootstrapServers", "172.19.128.77:9092,172.19.128.77:9091"),
 

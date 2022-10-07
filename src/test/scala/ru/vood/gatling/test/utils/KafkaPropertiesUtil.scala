@@ -10,24 +10,6 @@ object KafkaPropertiesUtil {
   val securityProtocol = "SSL"
   //  val securityProtocol = "PLAINTEXT"
 
-  def getConsumerKafkaProperties(config: Config, groupId: String): Properties = {
-    val properties = new Properties()
-    properties.put("bootstrap.servers", config.bootstrapServers)
-    properties.put("key.deserializer", classOf[ByteArrayDeserializer])
-    properties.put("value.deserializer", classOf[ByteArrayDeserializer])
-    properties.put("group.id", groupId)
-    properties.put("enable.auto.commit", "true")
-    properties.put("auto.offset.reset", "latest")
-    properties.put("security.protocol", securityProtocol)
-    properties.put("ssl.truststore.location", config.sslTruststoreLocation)
-    properties.put("ssl.truststore.password", config.sslTruststorePassword)
-    properties.put("ssl.keystore.location", config.sslKeystoreLocation)
-    properties.put("ssl.keystore.password", config.sslKeystorePassword)
-    properties.put("ssl.key.password", config.sslKeyPassword)
-    properties.put("session.timeout.ms", "10000")
-
-    properties
-  }
 
   def getProducerKafkaProperties(config: Config): Map[String, String] = {
     Map(

@@ -9,7 +9,7 @@ import ru.vood.gatling.test.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMe
 import ru.vood.gatling.test.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_MSG}
 
 class TestScriptGenerator extends Simulation {
-  implicit val countId = CountId(COUNT_MSG/10000)
+  implicit val countId = CountId(COUNT_MSG/100000)
 
   implicit val convertToBytes: (String, SomeDto) => (Array[Byte], Array[Byte]) = {
     (id, data) => (id.getBytes(), data.serializeToAvro._2)

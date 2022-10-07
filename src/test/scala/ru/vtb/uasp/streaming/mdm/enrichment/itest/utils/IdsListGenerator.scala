@@ -17,7 +17,7 @@ object IdsListGenerator {
 
   val userIdLocal: String = prefix + new FooCounter(scala.util.Random.nextInt(999999999)).get()
 
-  val COUNT_USERS: Int = sys.env.getOrElse("COUNT_USERS", "2").toInt
+  val COUNT_USERS: Int = sys.env.getOrElse("COUNT_USERS", "20000").toInt
   val COUNT_TRANSACTION: Int = sys.env.getOrElse("COUNT_TRANSACTION", "1").toInt
 
 

@@ -1,9 +1,10 @@
-package ru.vood.gatling.test.base
+package ru.vood.gatling.test
 
 import io.gatling.app.Gatling
 import io.gatling.core.config.GatlingPropertiesBuilder
+import ru.vood.gatling.test.base.IDEPathHelper
 
-object Engine extends App {
+object RunTest extends App {
 
   val props = new GatlingPropertiesBuilder()
     .resourcesDirectory(IDEPathHelper.mavenResourcesDirectory.toString)

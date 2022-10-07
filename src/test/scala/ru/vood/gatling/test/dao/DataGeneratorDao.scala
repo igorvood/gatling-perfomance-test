@@ -1,15 +1,15 @@
 package ru.vood.gatling.test.dao
 
-import ru.vtb.uasp.common.dto.UaspDto
+import ru.vood.gatling.test.dto.SomeDto
 
 import java.util.Calendar
 
 object DataGeneratorDao {
 
 
-  def generateWay4(userIdLocal: String): UaspDto = {
+  def generateWay4(userIdLocal: String) = {
     val random = new scala.util.Random
-    UaspDto(
+    SomeDto(
       id = userIdLocal,
       dataInt = Map(),
       dataLong = Map(
@@ -27,8 +27,8 @@ object DataGeneratorDao {
   }
 
 
-  def generateCrossLinkMdm(userIdLocal: String): UaspDto = {
-    UaspDto(
+  def generateCrossLinkMdm(userIdLocal: String) = {
+    SomeDto(
       userIdLocal,
       Map("period" -> 12),
       Map(),

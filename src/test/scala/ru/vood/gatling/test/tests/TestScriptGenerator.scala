@@ -3,18 +3,16 @@ package ru.vood.gatling.test.tests
 import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
 import ru.vood.gatling.test.dao.DataGeneratorDao.{generateCrossLinkMdm, generateWay4}
-import ru.vood.gatling.test.scenario.CommonObject.{encoderUaspDto, genericDatumWriterUaspDto}
+import ru.vood.gatling.test.dto.SomeDto
 import ru.vood.gatling.test.scenario.{CountId, SendScenarioBuilder}
 import ru.vood.gatling.test.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMessagesConf, kafkaInWay4MessagesConf}
 import ru.vood.gatling.test.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USERS}
-import ru.vtb.uasp.common.dto.UaspDto
-import ru.vtb.uasp.common.utils.avro.AvroSerializeUtil
 
 class TestScriptGenerator extends Simulation {
   implicit val countId = CountId(1000)
 
-  implicit val convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte]) = {
-    (id, data) => (id.getBytes(), AvroSerializeUtil.encode[UaspDto](data, encoderUaspDto, genericDatumWriterUaspDto))
+  implicit val convertToBytes: (String, SomeDto) => (Array[Byte], Array[Byte]) = {
+    (id, data) => (id.getBytes(), data.serializeToAvro._2)
   }
 
   val COUNT_MESSAGES: Int = COUNT_USERS * COUNT_TRANSACTION

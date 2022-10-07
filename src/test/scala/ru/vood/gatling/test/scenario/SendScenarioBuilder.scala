@@ -4,17 +4,16 @@ import com.github.mnogu.gatling.kafka.Predef._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import ru.vood.gatling.test.common.Finisheable
-import ru.vtb.uasp.common.dto.UaspDto
 
 import scala.math.abs
 
-class SendScenarioBuilder(
-                           private val senderName: String = "kafkaInMdmCrossLinkMessages",
-                           private val cntIds: Int,
-                           private val generateDto: String => UaspDto,
-                           private val convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte])
+class SendScenarioBuilder[T](
+                              private val senderName: String = "kafkaInMdmCrossLinkMessages",
+                              private val cntIds: Int,
+                              private val generateDto: String => T,
+                              private val convertToBytes: (String, T) => (Array[Byte], Array[Byte])
 
-                         ) extends Finisheable {
+                            ) extends Finisheable {
 
 
   private val byteIDName = "byteIDName"
@@ -44,7 +43,7 @@ class SendScenarioBuilder(
 object SendScenarioBuilder {
 
 
-  def apply(senderName: String = "kafkaInMdmCrossLinkMessages", generateDto: String => UaspDto)(implicit cntIds: CountId, convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte])) =
+  def apply[T](senderName: String = "kafkaInMdmCrossLinkMessages", generateDto: String => T)(implicit cntIds: CountId, convertToBytes: (String, T) => (Array[Byte], Array[Byte])) =
 
     new SendScenarioBuilder(senderName, cntIds.cnt, generateDto, convertToBytes).sendScenario
 }

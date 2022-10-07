@@ -31,8 +31,8 @@ class UaspStreamingMdmEnrichmentITestScript extends Simulation {
 
 
     setUp(
-      sendMdmCrossLinksScenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInMdmCrossLinkMessagesConf),
-      sendWay4Scenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInWay4MessagesConf)
+      sendMdmCrossLinksScenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInMdmCrossLinkMessagesConf).andThen(
+        sendWay4Scenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInWay4MessagesConf))
     )
   }
   else if (CASE_NUMBER == 2) {

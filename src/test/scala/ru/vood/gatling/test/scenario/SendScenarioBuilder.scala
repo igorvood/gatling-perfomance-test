@@ -1,10 +1,10 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario
+package ru.vood.gatling.test.scenario
 
 import com.github.mnogu.gatling.kafka.Predef._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
+import ru.vood.gatling.test.common.Finisheable
 import ru.vtb.uasp.common.dto.UaspDto
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.common.Finisheable
 
 import scala.math.abs
 

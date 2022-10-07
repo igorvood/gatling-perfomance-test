@@ -1,4 +1,4 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario
+package ru.vood.gatling.test.scenario
 
 import com.sksamuel.avro4s.{AvroSchema, Decoder, Encoder}
 import org.apache.avro.Schema

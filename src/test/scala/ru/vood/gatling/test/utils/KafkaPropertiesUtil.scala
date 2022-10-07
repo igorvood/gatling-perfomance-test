@@ -1,8 +1,8 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.utils
+package ru.vood.gatling.test.utils
 
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.common.serialization.ByteArrayDeserializer
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.entity.Config
+import ru.vood.gatling.test.entity.Config
 
 import java.util.Properties
 

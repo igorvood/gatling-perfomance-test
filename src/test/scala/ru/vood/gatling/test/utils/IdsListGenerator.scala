@@ -1,6 +1,6 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.utils
+package ru.vood.gatling.test.utils
 
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.entity.Config
+import ru.vood.gatling.test.entity.Config
 
 import scala.util.Try
 

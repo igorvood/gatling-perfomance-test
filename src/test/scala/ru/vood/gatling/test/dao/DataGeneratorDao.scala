@@ -1,4 +1,4 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.dao
+package ru.vood.gatling.test.dao
 
 import ru.vtb.uasp.common.dto.UaspDto
 

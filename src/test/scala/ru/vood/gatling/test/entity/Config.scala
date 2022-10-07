@@ -1,9 +1,9 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.entity
+package ru.vood.gatling.test.entity
 
 import com.github.mnogu.gatling.kafka.Predef.kafka
 import com.github.mnogu.gatling.kafka.protocol.KafkaProtocol
 import io.gatling.core.Predef.configuration
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.KafkaPropertiesUtil
+import ru.vood.gatling.test.utils.KafkaPropertiesUtil
 
 case class Config(
                    topicInWay4: String,

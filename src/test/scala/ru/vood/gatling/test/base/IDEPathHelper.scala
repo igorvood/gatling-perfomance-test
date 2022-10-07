@@ -1,4 +1,4 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.base
+package ru.vood.gatling.test.base
 
 import java.nio.file.{Path, Paths}
 

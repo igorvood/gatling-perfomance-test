@@ -1,4 +1,4 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.base
+package ru.vood.gatling.test.base
 
 import io.gatling.app.Gatling
 import io.gatling.core.config.GatlingPropertiesBuilder
@@ -9,7 +9,7 @@ object Engine extends App {
     .resourcesDirectory(IDEPathHelper.mavenResourcesDirectory.toString)
     .resultsDirectory(IDEPathHelper.resultsDirectory.toString)
     .binariesDirectory(IDEPathHelper.mavenBinariesDirectory.toString)
-    .simulationClass("ru.vtb.uasp.streaming.mdm.enrichment.itest.tests.UaspStreamingMdmEnrichmentITestScript")
+    .simulationClass("ru.vood.gatling.test.tests.UaspStreamingMdmEnrichmentITestScript")
 
   Gatling.fromMap(props.build)
 }

@@ -1,14 +1,14 @@
-package ru.vtb.uasp.streaming.mdm.enrichment.itest.tests
+package ru.vood.gatling.test.tests
 
 import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
+import ru.vood.gatling.test.dao.DataGeneratorDao.{generateCrossLinkMdm, generateWay4}
+import ru.vood.gatling.test.scenario.CommonObject.{encoderUaspDto, genericDatumWriterUaspDto}
+import ru.vood.gatling.test.scenario.{CountId, SendScenarioBuilder}
+import ru.vood.gatling.test.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMessagesConf, kafkaInWay4MessagesConf}
+import ru.vood.gatling.test.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USERS}
 import ru.vtb.uasp.common.dto.UaspDto
 import ru.vtb.uasp.common.utils.avro.AvroSerializeUtil
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.dao.DataGeneratorDao.{generateCrossLinkMdm, generateWay4}
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.CommonObject.{encoderUaspDto, genericDatumWriterUaspDto}
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario._
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMessagesConf, kafkaInWay4MessagesConf}
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USERS}
 
 class UaspStreamingMdmEnrichmentITestScript extends Simulation {
   implicit val countId = CountId(1000)

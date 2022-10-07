@@ -1,31 +1,11 @@
 package ru.vtb.uasp.streaming.mdm.enrichment.itest.dao
 
 import ru.vtb.uasp.common.dto.UaspDto
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.common.FooCounter
 
-import java.text.SimpleDateFormat
 import java.util.Calendar
 
 object DataGeneratorDao {
 
-
-  def generateMsgFields(id: Int): Map[String, Any] = {
-    val random = new scala.util.Random
-    val fooCounter = new FooCounter(id)
-    val USER_START_ID_NUMBER = (Math.random() * 100000).toInt * 10000 + fooCounter.inc() * random.nextInt(1000)
-
-    Map(
-      "transaction_datetime" -> new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(Calendar.getInstance().getTime),
-      "processing_datetime" -> new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(Calendar.getInstance().getTime),
-      "processing_effectivedate" -> new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime),
-      "op_id" -> random.nextInt(999999),
-      "audit_ref_authcode" -> random.nextInt(999999),
-      "audit_ref_rrn" -> random.alphanumeric.take(12).mkString.toUpperCase,
-      "audit_ref_srn" -> random.alphanumeric.take(12).mkString.toUpperCase,
-      "local_user_id" -> (fooCounter.inc() + USER_START_ID_NUMBER).toString,
-      "balance_change" -> random.nextInt(9999)
-    )
-  }
 
   def generateWay4(userIdLocal: String): UaspDto = {
     val random = new scala.util.Random

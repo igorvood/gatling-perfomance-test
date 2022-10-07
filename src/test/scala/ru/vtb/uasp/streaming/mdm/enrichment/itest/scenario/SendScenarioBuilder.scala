@@ -4,10 +4,7 @@ import com.github.mnogu.gatling.kafka.Predef._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import ru.vtb.uasp.common.dto.UaspDto
-import ru.vtb.uasp.common.utils.avro.AvroSerializeUtil
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.common.Finisheable
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.dao.DataGeneratorDao.generateCrossLinkMdm
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.CommonObject.{encoderUaspDto, genericDatumWriterUaspDto}
 
 import scala.math.abs
 
@@ -15,18 +12,15 @@ class SendScenarioBuilder(
                            private val senderName: String = "kafkaInMdmCrossLinkMessages",
                            private val cntIds: Int,
                            private val generateDto: String => UaspDto,
-                           private val convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte]) = {
-                             (id, data) => (id.getBytes(), AvroSerializeUtil.encode[UaspDto](data, encoderUaspDto, genericDatumWriterUaspDto))
-                           }
+                           private val convertToBytes: (String, UaspDto) => (Array[Byte], Array[Byte])
 
                          ) extends Finisheable {
 
 
+  private val byteIDName = "byteIDName"
+  private val bytesDtoName = "bytesDtoName"
+
   def isFinished: Boolean = true
-
-  private val byteIDName = "bytesLocalUserId"
-  private val bytesDtoName = "bytesCrossLinkUaspDto"
-
 
   def sendScenario: ScenarioBuilder = {
 

@@ -1,6 +1,5 @@
 package ru.vtb.uasp.streaming.mdm.enrichment.itest.utils
 
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.common.FooCounter
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.entity.Config
 
 import scala.util.Try

@@ -5,8 +5,6 @@ import com.github.mnogu.gatling.kafka.protocol.KafkaProtocol
 import io.gatling.core.Predef.configuration
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.KafkaPropertiesUtil
 
-import java.util.Date
-
 case class Config(
                    topicInWay4: String,
                    topicInCrossLinkMdm: String,

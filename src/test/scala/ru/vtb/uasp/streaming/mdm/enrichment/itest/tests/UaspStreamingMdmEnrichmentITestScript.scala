@@ -6,9 +6,9 @@ import ru.vtb.uasp.common.dto.UaspDto
 import ru.vtb.uasp.common.utils.avro.AvroSerializeUtil
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.dao.DataGeneratorDao.{generateCrossLinkMdm, generateWay4}
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.CommonObject.{encoderUaspDto, genericDatumWriterUaspDto}
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.{CountId, _}
+import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario._
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMessagesConf, kafkaInWay4MessagesConf}
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USERS, config}
+import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USERS}
 
 class UaspStreamingMdmEnrichmentITestScript extends Simulation {
   implicit val countId = CountId(1000)
@@ -26,8 +26,8 @@ class UaspStreamingMdmEnrichmentITestScript extends Simulation {
     val sendWay4Scenario = SendScenarioBuilder("kafkaInWay4MessagesConf", generateWay4)
 
     // Отправка в Way4 сообщение дожидается завершения передачи кросс ссылок мдм
-//    val sendWay4ScenarioBuilder: SendWay4ScenarioBuilder = new SendWay4ScenarioBuilder(COUNT_USERS, COUNT_TRANSACTION, config)
-//    val sendWay4Scenario = sendWay4ScenarioBuilder.getSendWay4Scenario
+    //    val sendWay4ScenarioBuilder: SendWay4ScenarioBuilder = new SendWay4ScenarioBuilder(COUNT_USERS, COUNT_TRANSACTION, config)
+    //    val sendWay4Scenario = sendWay4ScenarioBuilder.getSendWay4Scenario
 
 
     setUp(

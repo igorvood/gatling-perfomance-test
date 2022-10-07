@@ -1,4 +1,4 @@
-package ru.vood.gatling.test.base
+package ru.vood.gatling.test.util
 
 import java.nio.file.{Path, Paths}
 

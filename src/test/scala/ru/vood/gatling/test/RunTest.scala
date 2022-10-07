@@ -2,7 +2,7 @@ package ru.vood.gatling.test
 
 import io.gatling.app.Gatling
 import io.gatling.core.config.GatlingPropertiesBuilder
-import ru.vood.gatling.test.base.IDEPathHelper
+import ru.vood.gatling.test.util.IDEPathHelper
 
 object RunTest extends App {
 

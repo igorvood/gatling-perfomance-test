@@ -7,8 +7,8 @@ import ru.vtb.uasp.streaming.mdm.enrichment.itest.entity.Config
 import java.util.Properties
 
 object KafkaPropertiesUtil {
-   val securityProtocol = "SSL"
-//  val securityProtocol = "PLAINTEXT"
+  val securityProtocol = "SSL"
+  //  val securityProtocol = "PLAINTEXT"
 
   def getConsumerKafkaProperties(config: Config, groupId: String): Properties = {
     val properties = new Properties()

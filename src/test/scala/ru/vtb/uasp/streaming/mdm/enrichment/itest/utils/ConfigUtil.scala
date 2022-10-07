@@ -8,10 +8,10 @@ object ConfigUtil {
 
   def getConf(sysEnv: Map[String, String]): Config = {
     val config: Config = Config(
-            topicInWay4 = sysEnv.getOrElse("topicInWay4", "dev_bevents__realtime__input_converter__prof__transactions__uaspdto"),
-            topicInCrossLinkMdm = sysEnv.getOrElse("topicInCrossLinkMdm", "dev_rto_batch_ca_deposit_account_case_71_uaspdto"),
-//      topicInWay4 = sysEnv.getOrElse("topicInWay4", "A_CASE_71_HA_IN"),
-//      topicInCrossLinkMdm = sysEnv.getOrElse("topicInCrossLinkMdm", "A_CASE_71_CA_IN"),
+      topicInWay4 = sysEnv.getOrElse("topicInWay4", "dev_bevents__realtime__input_converter__prof__transactions__uaspdto"),
+      topicInCrossLinkMdm = sysEnv.getOrElse("topicInCrossLinkMdm", "dev_rto_batch_ca_deposit_account_case_71_uaspdto"),
+      //      topicInWay4 = sysEnv.getOrElse("topicInWay4", "A_CASE_71_HA_IN"),
+      //      topicInCrossLinkMdm = sysEnv.getOrElse("topicInCrossLinkMdm", "A_CASE_71_CA_IN"),
 
 
       topicInMortgage = sysEnv.getOrElse("topicInMortgage", "dev_bevents_card_agreement_enrich_out_uaspdto"),

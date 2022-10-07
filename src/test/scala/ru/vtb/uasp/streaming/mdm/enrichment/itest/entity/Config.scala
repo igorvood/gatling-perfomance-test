@@ -34,11 +34,11 @@ case class Config(
                    prefix: String,
                    rateList: List[String],
                    dateDiapason: Int
-                 ){
+                 ) {
 
   val evalPrefix: String = if (enablePrefix.equals("true")) s"$prefix${new Date()}=>" else new Date().toString
 
-  val kafkaInMdmCrossLinkMessagesConf: KafkaProtocol =getKafkaProtocol(topicInCrossLinkMdm)
+  val kafkaInMdmCrossLinkMessagesConf: KafkaProtocol = getKafkaProtocol(topicInCrossLinkMdm)
 
   val kafkaInMortgageMessagesConf: KafkaProtocol = getKafkaProtocol(topicInMortgage)
 
@@ -47,7 +47,7 @@ case class Config(
   val kafkaInWay4MessagesConf: KafkaProtocol = getKafkaProtocol(topicInWay4)
 
 
-  private def getKafkaProtocol(topicName: String) : KafkaProtocol = kafka.topic(topicName)
+  private def getKafkaProtocol(topicName: String): KafkaProtocol = kafka.topic(topicName)
     .properties(KafkaPropertiesUtil.getProducerKafkaProperties(this))
 
 }

@@ -8,15 +8,13 @@ import ru.vtb.uasp.common.dto.UaspDto
 import ru.vtb.uasp.common.utils.avro.AvroSerializeUtil
 import ru.vtb.uasp.mdm.enrichment.dao.UaspDtoPredef
 import ru.vtb.uasp.mdm.enrichment.service.dto.EnrichmentUaspWithError
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.common.Finisheable
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.dao.DataGeneratorDao
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.entity.Config
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.CommonObject.{encoderUaspDto, genericDatumWriterUaspDto}
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.SendWay4ScenarioBuilder._
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.TestEnrichProperty.{globalIdEnrichPropertyTest, hypothecProperty}
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.service.{ IdConvertorService}
+import ru.vtb.uasp.streaming.mdm.enrichment.itest.service.IdConvertorService
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.userIdLocal
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.KafkaPropertiesUtil
 
 import scala.math.abs
 
@@ -73,13 +71,13 @@ class SendWay4ScenarioBuilder(val countUsers: Int,
         })
           .exec(kafka("kafkaInWay4MessagesConf").send[Array[Byte], Array[Byte]]("${" + bytesLocalUserIdSessionName + "}", "${" + bytesWay4UaspDtoSessionName + "}"))
       })
-      /*      .asLongAs(_ => consumerEnrichmentDto.getCountMessages < countMessages, "CheckCountWay4Messages") {
-              exec(session => session).pause(10)
-            }
-            .exec(session => {
-              new CheckAction("Compare_result&expectedResult_CheckerOfEnrichmentWay4", new CheckerOfEnrichmentWay4(consumerEnrichmentDto))
-              session
-            })*/
+    /*      .asLongAs(_ => consumerEnrichmentDto.getCountMessages < countMessages, "CheckCountWay4Messages") {
+            exec(session => session).pause(10)
+          }
+          .exec(session => {
+            new CheckAction("Compare_result&expectedResult_CheckerOfEnrichmentWay4", new CheckerOfEnrichmentWay4(consumerEnrichmentDto))
+            session
+          })*/
 
 
     sendWay4Scenario

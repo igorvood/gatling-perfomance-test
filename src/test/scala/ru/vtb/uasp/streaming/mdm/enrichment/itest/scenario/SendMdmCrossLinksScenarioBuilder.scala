@@ -13,8 +13,6 @@ import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.CommonObject.{encoder
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.SendMdmCrossLinksScenarioBuilder._
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario.TestEnrichProperty.globalIdEnrichPropertyTest
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.service.IdConvertorService
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.userIdLocal
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.KafkaPropertiesUtil
 
 import scala.math.abs
 
@@ -26,8 +24,8 @@ class SendMdmCrossLinksScenarioBuilder(val countUsers: Int, val config: Config) 
     val sendMdmCrossLinksScenario =
       scenario("Mdm Cross Links")
         .exec(session => {
-          val localUserId =  abs(java.util.UUID.randomUUID().toString.hashCode % 10000).toString
-//          val localUserId =  "1"
+          val localUserId = abs(java.util.UUID.randomUUID().toString.hashCode % 10000).toString
+          //          val localUserId =  "1"
 
           val updateSession = session
             .set(localUserIdSessionName, localUserId)
@@ -51,15 +49,15 @@ class SendMdmCrossLinksScenarioBuilder(val countUsers: Int, val config: Config) 
             .set(bytesCrossLinkUaspDtoSessionName, bytesCrossLinkUaspDto)
         })
         .exec(kafka("kafkaInMdmCrossLinkMessages").send[Array[Byte], Array[Byte]]("${" + bytesLocalUserIdSessionName + "}", "${" + bytesCrossLinkUaspDtoSessionName + "}"))
-//        .asLongAs(_ => consumerMdmStatusDto.getCountMessages < countUsers, "CheckCountMdmStatusMessages") {
-//          exec(session => session).pause(1)
-//        }
-//        .exec(session => {
-//          val globalUserId = session(globalUserIdSessionName).as[String]
-//          val clusterCrossLink: UaspDto = consumerMdmStatusDto.get(globalUserId)
-//          session.set(clusterСrossLinkUaspDtoSessionName, clusterCrossLink)
-//        })
-//        .exec(new CheckAction("CheckerOfCrossLinkMdm", new CheckerOfCrossLinkMdm()))
+    //        .asLongAs(_ => consumerMdmStatusDto.getCountMessages < countUsers, "CheckCountMdmStatusMessages") {
+    //          exec(session => session).pause(1)
+    //        }
+    //        .exec(session => {
+    //          val globalUserId = session(globalUserIdSessionName).as[String]
+    //          val clusterCrossLink: UaspDto = consumerMdmStatusDto.get(globalUserId)
+    //          session.set(clusterСrossLinkUaspDtoSessionName, clusterCrossLink)
+    //        })
+    //        .exec(new CheckAction("CheckerOfCrossLinkMdm", new CheckerOfCrossLinkMdm()))
 
 
     sendMdmCrossLinksScenario
@@ -69,11 +67,10 @@ class SendMdmCrossLinksScenarioBuilder(val countUsers: Int, val config: Config) 
 
 object SendMdmCrossLinksScenarioBuilder {
 
+  val localCrossLinkUaspDtoSessionName = "localCrossLinkUaspDto"
+  val clusterСrossLinkUaspDtoSessionName = "clusterСrossLinkUaspDto"
   private val localUserIdSessionName = "localUserId"
   private val globalUserIdSessionName = "globalUserId"
-
-  val localCrossLinkUaspDtoSessionName = "localCrossLinkUaspDto"
   private val bytesLocalUserIdSessionName = "bytesLocalUserId"
   private val bytesCrossLinkUaspDtoSessionName = "bytesCrossLinkUaspDto"
-  val clusterСrossLinkUaspDtoSessionName = "clusterСrossLinkUaspDto"
 }

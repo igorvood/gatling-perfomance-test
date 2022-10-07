@@ -8,18 +8,12 @@ import ru.vood.gatling.test.utils.KafkaPropertiesUtil
 case class Config(
                    topicInWay4: String,
                    topicInCrossLinkMdm: String,
-                   topicInMortgage: String,
-                   topicOutMortgage: String,
-                   topicOutCrossLinkMdmStatus: String,
-                   topicOutEnrichmentWay4: String,
                    bootstrapServers: String,
                    sslTruststoreLocation: String,
                    sslTruststorePassword: String,
                    sslKeystoreLocation: String,
                    sslKeystorePassword: String,
                    sslKeyPassword: String,
-                   enablePrefix: String,
-                   prefix: String,
                  ) {
 
 

@@ -14,10 +14,6 @@ object ConfigUtil {
       //      topicInCrossLinkMdm = sysEnv.getOrElse("topicInCrossLinkMdm", "A_CASE_71_CA_IN"),
 
 
-      topicInMortgage = sysEnv.getOrElse("topicInMortgage", "dev_bevents_card_agreement_enrich_out_uaspdto"),
-      topicOutMortgage = sysEnv.getOrElse("topicOutMortgage", "dev_bevents_card_agreement_enrich_out_uaspdto"),
-      topicOutCrossLinkMdmStatus = sysEnv.getOrElse("topicOutCrossLinkMdmStatus", "dev_bevents_card_agreement_enrich_out_uaspdto"),
-      topicOutEnrichmentWay4 = sysEnv.getOrElse("topicOutEnrichmentWay4", "dev_ivr__uasp_realtime__mdm_enrichment__uaspdto"),
       bootstrapServers = sysEnv.getOrElse("bootstrapServers", "d5uasp-kfc001lk.corp.dev.vtb:9092,d5uasp-kfc002lk.corp.dev.vtb:9092,d5uasp-kfc003lk.corp.dev.vtb:9092,d5uasp-kfc004lk.corp.dev.vtb:9092,d5uasp-kfc005lk.corp.dev.vtb:9092,d5uasp-kfc006lk.corp.dev.vtb:9092"),
       //      bootstrapServers = sysEnv.getOrElse("bootstrapServers", "172.19.128.77:9092,172.19.128.77:9091"),
 
@@ -26,9 +22,6 @@ object ConfigUtil {
       sslKeystoreLocation = sysEnv.getOrElse("sslKeystoreLocation", "C:\\Work\\SSL\\new_APD75-None-kafka-d5-client-uasp.pfx"),
       sslKeystorePassword = sysEnv.getOrElse("sslKeystorePassword", "p9HrxNIXS4ekSBKKD0Dh<zL7a2!"),
       sslKeyPassword = sysEnv.getOrElse("sslKeyPassword", "p9HrxNIXS4ekSBKKD0Dh<zL7a2!"),
-
-      enablePrefix = sys.env.getOrElse("enablePrefix", "true"),
-      prefix = sys.env.getOrElse("prefix", "EnItest!-"),
     )
 
     config

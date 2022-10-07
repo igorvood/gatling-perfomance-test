@@ -23,10 +23,6 @@ object ConfigUtil {
       topicOutRate = sysEnv.getOrElse("topicInRate", "rate_out"),
       bootstrapServers = sysEnv.getOrElse("bootstrapServers", "d5uasp-kfc001lk.corp.dev.vtb:9092,d5uasp-kfc002lk.corp.dev.vtb:9092,d5uasp-kfc003lk.corp.dev.vtb:9092,d5uasp-kfc004lk.corp.dev.vtb:9092,d5uasp-kfc005lk.corp.dev.vtb:9092,d5uasp-kfc006lk.corp.dev.vtb:9092"),
       //      bootstrapServers = sysEnv.getOrElse("bootstrapServers", "172.19.128.77:9092,172.19.128.77:9091"),
-      groupIdCrossLinkStatusMdm = sysEnv.getOrElse("groupIdCrossLinkStatusMdm", "groupIdCrossLinkStatusMdm_ksu"),
-      groupIdMortgageMdm = sysEnv.getOrElse("groupIdMortgageMdm", "groupIdMortgageMdm-" + groupId),
-      groupIdWay4 = sysEnv.getOrElse("groupIdWay4", "groupIdWay4_ksu-" + groupId),
-      groupIdDlq = sysEnv.getOrElse("groupIdDlq", "groupIdDlq_ksu-" + groupId),
 
       sslTruststoreLocation = sysEnv.getOrElse("sslTruststoreLocation", "C:\\Work\\SSL\\new_APD75-None-kafka-d5-client-uasp-truststore.pfx"),
       sslTruststorePassword = sysEnv.getOrElse("sslTruststorePassword", "p9HrxNIXS4ekSBKKD0Dh<zL7a2!"),

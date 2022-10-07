@@ -3,7 +3,7 @@ package ru.vtb.uasp.streaming.mdm.enrichment.itest.tests
 import io.gatling.core.Predef._
 import io.gatling.core.scenario.Simulation
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.scenario._
-import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.config.kafkaInMdmCrossLinkMessagesConf
+import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMessagesConf, kafkaInWay4MessagesConf}
 import ru.vtb.uasp.streaming.mdm.enrichment.itest.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_USERS, config}
 
 class UaspStreamingMdmEnrichmentITestScript extends Simulation {
@@ -27,7 +27,7 @@ class UaspStreamingMdmEnrichmentITestScript extends Simulation {
 
       //      sendMortgageScenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInMortgageMessagesConf),
       sendMdmCrossLinksScenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInMdmCrossLinkMessagesConf),
-      //      sendWay4Scenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInWay4MessagesConf)
+            sendWay4Scenario.inject(atOnceUsers(COUNT_USERS)).protocols(kafkaInWay4MessagesConf)
     )
   }
   else if (CASE_NUMBER == 2) {

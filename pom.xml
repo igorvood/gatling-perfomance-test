@@ -14,7 +14,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <scala.binary.version>2.12</scala.binary.version>
-        <scala.version>2.12.8</scala.version>
+        <scala.version>2.12.12</scala.version>
         <gatling.version>3.4.2</gatling.version>
         <gatling-maven-plugin.version>3.1.2</gatling-maven-plugin.version>
         <akka.version>2.6.8</akka.version>
@@ -154,9 +154,9 @@
             <version>2.10.0-RC2</version>
         </dependency>
         <dependency>
-            <groupId>com.github.mnogu.gatling.kafka</groupId>
-            <artifactId>gatling-kafka</artifactId>
-            <version>0.3.3</version>
+            <groupId>com.github.mnogu</groupId>
+            <artifactId>gatling-kafka_2.12</artifactId>
+            <version>0.3.1</version>
         </dependency>
 
     </dependencies>

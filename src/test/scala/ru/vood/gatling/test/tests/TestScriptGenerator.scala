@@ -6,10 +6,10 @@ import ru.vood.gatling.test.dao.DataGeneratorDao.{generateCrossLinkMdm, generate
 import ru.vood.gatling.test.dto.SomeDto
 import ru.vood.gatling.test.scenario.{CountId, SendScenarioBuilder}
 import ru.vood.gatling.test.utils.IdsListGenerator.config.{kafkaInMdmCrossLinkMessagesConf, kafkaInWay4MessagesConf}
-import ru.vood.gatling.test.utils.IdsListGenerator.{COUNT_TRANSACTION, COUNT_MSG}
+import ru.vood.gatling.test.utils.IdsListGenerator.{COUNT_MSG, COUNT_TRANSACTION}
 
 class TestScriptGenerator extends Simulation {
-  implicit val countId = CountId(COUNT_MSG/100000)
+  implicit val countId = CountId(COUNT_MSG / 10000)
 
   implicit val convertToBytes: (String, SomeDto) => (Array[Byte], Array[Byte]) = {
     (id, data) => (id.getBytes(), data.serializeToAvro._2)
@@ -29,12 +29,13 @@ class TestScriptGenerator extends Simulation {
     )
   }
   else if (CASE_NUMBER == 2) {
-
+    // Передач холодного и горячего
     val sendMdmCrossLinksScenario = SendScenarioBuilder("kafkaInMdmCrossLinkMessages", generateCrossLinkMdm)
+    val sendWay4Scenario = SendScenarioBuilder("kafkaInWay4MessagesConf", generateWay4)
 
     setUp(
-
       sendMdmCrossLinksScenario.inject(atOnceUsers(COUNT_MSG)).protocols(kafkaInMdmCrossLinkMessagesConf),
+      sendWay4Scenario.inject(atOnceUsers(COUNT_MSG)).protocols(kafkaInWay4MessagesConf)
     )
 
   }

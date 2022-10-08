@@ -13,7 +13,7 @@ export topicOutCrossLinkMdmStatus=dev_feature_ivr__uasp_realtime__mdm_enrichment
 export topicOutEnrichmentWay4=dev_feature_ivr__uasp_realtime__input_converter__way4_issuing_operation__uaspdto
 export topicDLQ=dev_feature_ivr__uasp_realtime__mdm_enrichment__for_additional_enrichment__uaspdto
 
-export bootstrapServers="d5uasp-apc002lk.corp.dev.vtb:9092,d5uasp-apc003lk.corp.dev.vtb:9092,d5uasp-apc004lk.corp.dev.vtb:9092"
+export bootstrapServers="d5uasp-apc002lk.corp.dev.:9092,d5uasp-apc003lk.corp.dev.:9092,d5uasp-apc004lk.corp.dev.:9092"
 export groupIdCrossLinkStatusMdm=groupId-feature-mdm-enrichment-5
 export groupIdWay4=consumer-groupId-feature-mdm-enrichment-way4-5
 export groupIdDlq=consumer-groupId-feature-mdm-enrichment-way4-dlq-5
@@ -26,4 +26,4 @@ export sslKeystoreLocation="/opt/kafka-certs/APD00.13.01-USBP-kafka-cluster-uasp
 
 
 
-java -Xmx10g -cp "./target/uasp-streaming-mdm-enrichment-itest-1.0-SNAPSHOT.jar:./target/uasp-streaming-mdm-enrichment-itest-1.0-SNAPSHOT-tests.jar:./target/original-uasp-streaming-mdm-enrichment-itest-1.0-SNAPSHOT.jar" io.gatling.app.Gatling -s ru.vtb.uasp.streaming.mdm.enrichment.itest.tests.UaspStreamingMdmEnrichmentITestScript
+java -Xmx10g -cp "./target/gatling-perfomance-itest-1.0.1.jar:./target/gatling-perfomance-itest-1.0.1-tests.jar:./target/original-gatling-perfomance-itest-1.0.1.jar" io.gatling.app.Gatling -s ru.vood.gatling.test.RunTest

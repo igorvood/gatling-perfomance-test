@@ -4,6 +4,7 @@ import com.github.mnogu.gatling.kafka.Predef._
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import ru.vood.gatling.test.common.Finisheable
+import ru.vood.gatling.test.scenario.SendScenarioBuilder.{byteIDName, bytesDtoName}
 
 import scala.math.abs
 
@@ -15,9 +16,7 @@ class SendScenarioBuilder[T](
 
                             ) extends Finisheable {
 
-
-  private val byteIDName = "byteIDName"
-  private val bytesDtoName = "bytesDtoName"
+  assert(cntIds>0, s"cntIds must be more than 0 current value is $cntIds")
 
   def isFinished: Boolean = true
 
@@ -34,6 +33,7 @@ class SendScenarioBuilder[T](
         session
           .set(byteIDName, tuple._1)
           .set(bytesDtoName, tuple._2)
+
       })
       .exec(kafka(senderName).send[Array[Byte], Array[Byte]]("${" + byteIDName + "}", "${" + bytesDtoName + "}"))
   }
@@ -41,6 +41,9 @@ class SendScenarioBuilder[T](
 }
 
 object SendScenarioBuilder {
+
+  private val byteIDName = "byteIDName"
+  private val bytesDtoName = "bytesDtoName"
 
 
   def apply[T](senderName: String = "kafkaInMdmCrossLinkMessages", generateDto: String => T)(implicit cntIds: CountId, convertToBytes: (String, T) => (Array[Byte], Array[Byte])) =

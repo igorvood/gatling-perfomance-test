@@ -17,12 +17,12 @@ case class Config(
                  ) {
 
 
-  val kafkaInMdmCrossLinkMessagesConf: KafkaProtocol = getKafkaProtocol(topicInCrossLinkMdm)
+ /* val kafkaInMdmCrossLinkMessagesConf: KafkaProtocol = getKafkaProtocol(topicInCrossLinkMdm)
 
   val kafkaInWay4MessagesConf: KafkaProtocol = getKafkaProtocol(topicInWay4)
 
 
   private def getKafkaProtocol(topicName: String): KafkaProtocol = kafka.topic(topicName)
-    .properties(KafkaPropertiesUtil.getProducerKafkaProperties(this))
+    .properties(KafkaPropertiesUtil.getProducerKafkaProperties(this))*/
 
 }

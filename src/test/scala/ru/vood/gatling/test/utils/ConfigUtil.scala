@@ -6,7 +6,16 @@ object ConfigUtil {
 
   val groupId = 24
 
-  def getConf(sysEnv: Map[String, String]): Config = {
+  implicit val sysEnv: Map[String, String] = sys.env
+  val config: Config = ConfigUtil.getConf(sysEnv)
+
+//  val COUNT_MSG: Int = sys.env.getOrElse("COUNT_USERS", "8000000").toInt
+    val COUNT_MSG: Int = sys.env.getOrElse("COUNT_USERS", "2").toInt
+
+  val COUNT_TRANSACTION: Int = sys.env.getOrElse("COUNT_TRANSACTION", "1").toInt
+
+
+  def getConf(implicit sysEnv: Map[String, String]): Config = {
     val config: Config = Config(
       topicInWay4 = sysEnv.getOrElse("topicInWay4", "dev_bevents__realtime__input_converter__prof__transactions__uaspdto"),
       topicInCrossLinkMdm = sysEnv.getOrElse("topicInCrossLinkMdm", "dev_rto_batch_ca_deposit_account_case_71_uaspdto"),
@@ -26,4 +35,6 @@ object ConfigUtil {
 
     config
   }
+
+  implicit  val cfg = getConf
 }

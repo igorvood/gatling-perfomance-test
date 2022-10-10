@@ -21,8 +21,7 @@ class TestScriptGenerator extends Simulation {
     }
   }
 
-  val COUNT_MESSAGES: Int = COUNT_MSG * COUNT_TRANSACTION
-  val CASE_NUMBER: Int = sys.env.getOrElse("CASE_NUMBER", "1").toInt
+  val CASE_NUMBER: Int = sys.env.getOrElse("CASE_NUMBER", "2").toInt
 
   private val CAId: KafkaProtocol = "dev_ivr__uasp_realtime__input_converter__mdm_cross_link__uaspdto".kafkaProtocol
 
@@ -52,7 +51,16 @@ class TestScriptGenerator extends Simulation {
     // Передач холодного и горячего
 
     setUp(
-      caIdScenario.inject(atOnceUsers(COUNT_MSG)).protocols(CAId),
+//      caIdScenario.inject(atOnceUsers(COUNT_MSG)).protocols(CAId),
+      caOtherScenario.inject(atOnceUsers(COUNT_MSG)).protocols(CAOther),
+      haScenario.inject(atOnceUsers(COUNT_MSG)).protocols(HA)
+    )
+
+  } else if (CASE_NUMBER == 3) {
+    // Передач холодного и горячего
+
+    setUp(
+      //      caIdScenario.inject(atOnceUsers(COUNT_MSG)).protocols(CAId),
       caOtherScenario.inject(atOnceUsers(COUNT_MSG)).protocols(CAOther),
       haScenario.inject(atOnceUsers(COUNT_MSG)).protocols(HA)
     )

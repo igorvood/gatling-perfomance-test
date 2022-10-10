@@ -9,10 +9,10 @@ object ConfigUtil {
   implicit val sysEnv: Map[String, String] = sys.env
   val config: Config = ConfigUtil.getConf(sysEnv)
 
-  val COUNT_MSG: Int = sys.env.getOrElse("COUNT_USERS", "1000000").toInt
+  val COUNT_MSG: Int = sys.env.getOrElse("COUNT_USERS", "10000").toInt
 //    val COUNT_MSG: Int = sys.env.getOrElse("COUNT_USERS", "2").toInt
 
-  val COUNT_TRANSACTION: Int = sys.env.getOrElse("COUNT_TRANSACTION", "1").toInt
+  val COUNT_TRANSACTION: Int = sys.env.getOrElse("COUNT_TRANSACTION", "1000").toInt
 
 
   def getConf(implicit sysEnv: Map[String, String]): Config = {

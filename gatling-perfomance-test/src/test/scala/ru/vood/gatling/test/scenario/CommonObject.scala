@@ -3,7 +3,7 @@ package ru.vood.gatling.test.scenario
 import com.sksamuel.avro4s.{AvroSchema, Decoder, Encoder}
 import org.apache.avro.Schema
 import org.apache.avro.generic.{GenericDatumReader, GenericDatumWriter, GenericRecord}
-import ru.vood.gatling.test.dto.SomeDto
+import ru.vood.gatling.test.utils.dto.SomeDto
 
 object CommonObject {
   val schemaUaspDto: Schema = AvroSchema[SomeDto]

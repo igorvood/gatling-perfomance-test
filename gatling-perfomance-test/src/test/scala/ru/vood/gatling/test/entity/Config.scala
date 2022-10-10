@@ -6,8 +6,6 @@ import io.gatling.core.Predef.configuration
 import ru.vood.gatling.test.utils.KafkaPropertiesUtil
 
 case class Config(
-                   topicInWay4: String,
-                   topicInCrossLinkMdm: String,
                    bootstrapServers: String,
                    sslTruststoreLocation: String,
                    sslTruststorePassword: String,
